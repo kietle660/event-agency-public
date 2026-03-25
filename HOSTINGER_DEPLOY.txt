@@ -1,0 +1,14 @@
+1. Upload all extracted files to your Hostinger Node.js app source folder.
+
+2. In Hostinger, set environment variables based on `.env.example` and your real secrets.
+
+3. Use `index.js` as the startup file.
+
+4. Run these commands on the server:
+   npm install
+   npm run build
+   npm run start
+
+5. If `npm run build` hangs on Hostinger shared hosting, build locally and upload the generated `.next` folder.
+
+6. Do not upload your local `.env.local` with real secrets unless you intentionally want the server to use it.
