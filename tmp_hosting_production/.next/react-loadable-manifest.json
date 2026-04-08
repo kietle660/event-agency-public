@@ -1,0 +1,75 @@
+{
+  "app\\admin\\(protected)\\components\\ContractBuilderClient.tsx -> html2canvas": {
+    "id": 82201,
+    "files": [
+      "static/chunks/ad2866b8.5c05f000a6bc3858.js"
+    ]
+  },
+  "app\\admin\\(protected)\\components\\ContractBuilderClient.tsx -> jspdf": {
+    "id": 18831,
+    "files": [
+      "static/chunks/280273a7.c1f7f9747efb3735.js",
+      "static/chunks/164f4fb6.92d1b8c256c72d3b.js",
+      "static/chunks/4233.b2e4cf948c48a91c.js"
+    ]
+  },
+  "app\\admin\\(protected)\\components\\LiquidationBuilderClient.tsx -> html2canvas": {
+    "id": 82201,
+    "files": [
+      "static/chunks/ad2866b8.5c05f000a6bc3858.js"
+    ]
+  },
+  "app\\admin\\(protected)\\components\\LiquidationBuilderClient.tsx -> jspdf": {
+    "id": 18831,
+    "files": [
+      "static/chunks/280273a7.c1f7f9747efb3735.js",
+      "static/chunks/164f4fb6.92d1b8c256c72d3b.js",
+      "static/chunks/4233.b2e4cf948c48a91c.js"
+    ]
+  },
+  "app\\admin\\(protected)\\components\\QuoteBuilderClient.tsx -> html2canvas": {
+    "id": 82201,
+    "files": [
+      "static/chunks/ad2866b8.5c05f000a6bc3858.js"
+    ]
+  },
+  "app\\admin\\(protected)\\components\\QuoteBuilderClient.tsx -> jspdf": {
+    "id": 18831,
+    "files": [
+      "static/chunks/280273a7.c1f7f9747efb3735.js",
+      "static/chunks/164f4fb6.92d1b8c256c72d3b.js",
+      "static/chunks/4233.b2e4cf948c48a91c.js"
+    ]
+  },
+  "node_modules\\jspdf\\dist\\jspdf.es.min.js -> canvg": {
+    "id": 3167,
+    "files": [
+      "static/chunks/bc98253f.ca6b4ba96147fa91.js",
+      "static/chunks/5902.63a020d7db68df46.js"
+    ]
+  },
+  "node_modules\\jspdf\\dist\\jspdf.es.min.js -> dompurify": {
+    "id": 91992,
+    "files": [
+      "static/chunks/1992.ce1a8878b167d7d8.js"
+    ]
+  },
+  "node_modules\\jspdf\\dist\\jspdf.es.min.js -> html2canvas": {
+    "id": 82201,
+    "files": [
+      "static/chunks/ad2866b8.5c05f000a6bc3858.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_app": {
+    "id": 41966,
+    "files": [
+      "static/chunks/1966.b8f83f7ba376c962.js"
+    ]
+  },
+  "node_modules\\next\\dist\\client\\index.js -> ../pages/_error": {
+    "id": 3899,
+    "files": [
+      "static/chunks/3899.3f761f7e3a944e8c.js"
+    ]
+  }
+}

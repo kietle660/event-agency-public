@@ -1,7 +1,13 @@
 import { NextResponse } from "next/server";
 
-import { createProject, deleteProject, normalizeProjectHref, updateProject } from "@/lib/content-store";
+import {
+  createProject,
+  deleteProject,
+  normalizeProjectHref,
+  updateProject,
+} from "@/lib/content-store";
 import type { Project } from "@/lib/content-types";
+import { createRequestUrl } from "@/lib/request-url";
 
 function toList(value: string) {
   return value
@@ -34,16 +40,16 @@ export async function POST(req: Request) {
 
   if (intent === "delete") {
     await deleteProject(String(formData.get("slug") || ""));
-    return NextResponse.redirect(new URL("/admin/projects", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin/projects"));
   }
 
   const project = formToProject(formData);
 
   if (intent === "update") {
     await updateProject(String(formData.get("slug") || ""), project);
-    return NextResponse.redirect(new URL("/admin/projects", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin/projects"));
   }
 
   await createProject(project);
-  return NextResponse.redirect(new URL("/admin/projects", req.url));
+  return NextResponse.redirect(createRequestUrl(req, "/admin/projects"));
 }

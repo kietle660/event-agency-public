@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { loginAdmin } from "@/lib/admin-auth";
+import { createRequestUrl } from "@/lib/request-url";
 
 export async function POST(req: Request) {
   const formData = await req.formData();
@@ -10,8 +11,8 @@ export async function POST(req: Request) {
   const ok = await loginAdmin(username, password);
 
   if (!ok) {
-    return NextResponse.redirect(new URL("/admin/login?error=1", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin/login?error=1"));
   }
 
-  return NextResponse.redirect(new URL("/admin", req.url));
+  return NextResponse.redirect(createRequestUrl(req, "/admin"));
 }

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { createRequestUrl } from "@/lib/request-url";
 import { SITE_LOCALE_COOKIE } from "@/lib/site-locale";
 
 export async function GET(req: Request) {
@@ -7,7 +8,7 @@ export async function GET(req: Request) {
   const locale = url.searchParams.get("locale") === "en" ? "en" : "vi";
   const redirect = url.searchParams.get("redirect") || "/";
 
-  const response = NextResponse.redirect(new URL(redirect, req.url));
+  const response = NextResponse.redirect(createRequestUrl(req, redirect));
   response.cookies.set(SITE_LOCALE_COOKIE, locale, {
     path: "/",
     sameSite: "lax",

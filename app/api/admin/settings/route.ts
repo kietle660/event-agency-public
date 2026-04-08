@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 
+import { createRequestUrl } from "@/lib/request-url";
 import { updateSiteSettings } from "@/lib/site-settings";
 
 export async function POST(req: Request) {
@@ -9,6 +10,12 @@ export async function POST(req: Request) {
     siteName: String(formData.get("siteName") || "").trim(),
     siteUrl: String(formData.get("siteUrl") || "").trim(),
     logoUrl: String(formData.get("logoUrl") || "").trim(),
+    quoteLogoUrl: String(formData.get("quoteLogoUrl") || "").trim(),
+    quoteCompanyName: String(formData.get("quoteCompanyName") || "").trim(),
+    quoteTaxCode: String(formData.get("quoteTaxCode") || "").trim(),
+    quoteAddress: String(formData.get("quoteAddress") || "").trim(),
+    quoteHotline: String(formData.get("quoteHotline") || "").trim(),
+    quoteEmail: String(formData.get("quoteEmail") || "").trim(),
     defaultTitle: String(formData.get("defaultTitle") || "").trim(),
     defaultDescription: String(formData.get("defaultDescription") || "").trim(),
     googleAnalyticsId: String(formData.get("googleAnalyticsId") || "").trim(),
@@ -46,5 +53,5 @@ export async function POST(req: Request) {
     })),
   });
 
-  return NextResponse.redirect(new URL("/admin/settings?saved=1", req.url));
+  return NextResponse.redirect(createRequestUrl(req, "/admin/settings?saved=1"));
 }

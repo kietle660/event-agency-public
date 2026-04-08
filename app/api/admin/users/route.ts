@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getAdminSession } from "@/lib/admin-auth";
+import { createRequestUrl } from "@/lib/request-url";
 import {
   createAdminUser,
   deleteAdminUser,
@@ -12,7 +13,7 @@ export async function POST(req: Request) {
   const session = await getAdminSession();
 
   if (!session || session.role !== "admin") {
-    return NextResponse.redirect(new URL("/admin", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin"));
   }
 
   const formData = await req.formData();
@@ -40,12 +41,11 @@ export async function POST(req: Request) {
       await deleteAdminUser(String(formData.get("id") || ""), session.id);
     }
 
-    return NextResponse.redirect(new URL("/admin/settings?section=accounts&saved=1", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin/settings?section=accounts&saved=1"));
   } catch (error) {
-    const message = error instanceof Error ? error.message : "Không thể xử lý tài khoản.";
+    const message = error instanceof Error ? error.message : "KhÃ´ng thá»ƒ xá»­ lÃ½ tÃ i khoáº£n.";
     return NextResponse.redirect(
-      new URL(`/admin/settings?section=accounts&error=${encodeURIComponent(message)}`, req.url)
+      createRequestUrl(req, `/admin/settings?section=accounts&error=${encodeURIComponent(message)}`)
     );
   }
 }
-

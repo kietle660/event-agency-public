@@ -12,14 +12,14 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "vi",
     icons: [
       {
-        src: "/logo.png",
+        src: "/icon.png",
         sizes: "512x512",
         type: "image/png",
       },
       {
-        src: "/favicon.ico",
-        sizes: "48x48",
-        type: "image/x-icon",
+        src: "/logo.png",
+        sizes: "512x512",
+        type: "image/png",
       },
     ],
   };

@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 
 import { createNews, deleteNews, updateNews } from "@/lib/content-store";
 import type { NewsItem } from "@/lib/content-types";
+import { createRequestUrl } from "@/lib/request-url";
 
 function formToNews(formData: FormData): NewsItem {
   return {
@@ -23,16 +24,16 @@ export async function POST(req: Request) {
 
   if (intent === "delete") {
     await deleteNews(String(formData.get("slug") || ""));
-    return NextResponse.redirect(new URL("/admin/news", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin/news"));
   }
 
   const item = formToNews(formData);
 
   if (intent === "update") {
     await updateNews(String(formData.get("slug") || ""), item);
-    return NextResponse.redirect(new URL("/admin/news", req.url));
+    return NextResponse.redirect(createRequestUrl(req, "/admin/news"));
   }
 
   await createNews(item);
-  return NextResponse.redirect(new URL("/admin/news", req.url));
+  return NextResponse.redirect(createRequestUrl(req, "/admin/news"));
 }
